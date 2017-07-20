@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/psots/posts",
+    "pages/index/index",
+    "pages/logs/logs"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ccc",
+    "navigationBarTitleText": "F鹅历险",
+    "navigationBarTextStyle": "black"
+  }
+}
