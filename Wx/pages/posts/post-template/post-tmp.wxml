@@ -1,0 +1,20 @@
+<template name="post-item">
+   <view class="wrap">
+    <view class="wrap-header-text">
+      <image src="{{item.headImgSrc}}" class="wrap-header"></image>
+      <text class="wrap-text">{{item.date}}</text>
+    </view>
+    
+    <text class="wrap-title">{{item.title}}</text>
+    <image src="{{item.imgSrc}}" class="wrap-image"></image>
+    <text class="wrap-content">
+      {{item.content}}
+    </text>
+    <view class="wrap-like">
+      <image src="/images/1.jpg" class="wrap-like-image"></image>
+      <text class="wrap-like-font">{{item.collection}}</text>
+      <image src="/images/2.jpg" class="wrap-like-image"></image>
+      <text class="wrap-like-font">{{item.reading}}</text>
+    </view>
+  </view>
+</template>

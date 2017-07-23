@@ -1,0 +1,19 @@
+<import src="post-template/post-tmp.wxml"/>
+<view class="postPage">
+  <swiper indicator-dots="true" autoplay="true" duration="500" interval="1000" indicator-color="rgba(245,183,186,.8)" indicator-active-color="red">
+    <swiper-item>
+      <image src="/images/1.jpg"></image>
+    </swiper-item>
+        <swiper-item>
+      <image src="/images/2.jpg"></image>
+    </swiper-item>
+        <swiper-item>
+      <image src="/images/3.jpg"></image>
+    </swiper-item>
+  </swiper>
+
+<block wx:for="{{imgDesc}}">
+  <template is="post-item" data="{{item}}"></template >
+</block>
+
+</view>

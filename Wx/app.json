@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/psots/posts",
+    
+    
+    
     "pages/index/index",
+    "pages/posts/posts",
     "pages/logs/logs"
     
   ],
