@@ -6,7 +6,7 @@
     </view>
     
     <text class="wrap-title">{{item.title}}</text>
-    <image src="{{item.imgSrc}}" class="wrap-image"></image>
+    <image src="{{item.imgSrc}}" class="wrap-image" data-postId="{{item.postId}}"></image>
     <text class="wrap-content">
       {{item.content}}
     </text>

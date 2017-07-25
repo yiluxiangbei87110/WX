@@ -2,9 +2,9 @@
   "pages": [
     
     
-    
-    "pages/index/index",
     "pages/posts/posts",
+    "pages/index/index",
+    
     "pages/logs/logs"
     
   ],
