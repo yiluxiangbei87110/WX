@@ -4,9 +4,9 @@
     
     "pages/posts/posts",
     "pages/index/index",
-    
+    "pages/posts/posts-detail/post-detail",
     "pages/logs/logs"
-    
+
   ],
   "window": {
     "backgroundTextStyle": "light",

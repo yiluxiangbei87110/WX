@@ -16,7 +16,7 @@
 
 <!-- 不能再template里面绑定，我们此时加一个view -->
 <!-- id={{item。postId}}为什么不在view里加id反而在模板里面加呢，因为不想整个大的view触发跳转 -->
-<view catchtap="gotoDetail" >
+<view data-postId="{{item.postId}}" catchtap="gotoDetail">
   <template is="post-item" data="{{item}}" ></template >
 </view>
   

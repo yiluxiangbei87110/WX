@@ -1,19 +1,20 @@
-var posData=require('../db/db.js');
+// pages/posts/posts-detail/post-detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    qq:'122576875'
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ imgDesc: posData.postList});
+  
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -61,13 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  gotoDetail:function(event){
-   console.log(event.currentTarget.dataset.postid);
-   wx.navigateTo({
-     url: 'posts-detail/post-detail'
-   })
-   
-    
   }
 })
