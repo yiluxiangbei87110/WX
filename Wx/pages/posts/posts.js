@@ -63,11 +63,9 @@ Page({
   
   },
   gotoDetail:function(event){
-   console.log(event.currentTarget.dataset.postid);
+   var id=event.currentTarget.dataset.postid;
    wx.navigateTo({
-     url: 'posts-detail/post-detail'
+     url: 'posts-detail/posts-detail?id='+id
    })
-   
-    
   }
 })
