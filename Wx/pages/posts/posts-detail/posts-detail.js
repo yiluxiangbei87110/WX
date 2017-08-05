@@ -17,11 +17,11 @@ Page({
     var id=options.id;
     this.setData({
       postId: id
-    })
+    });
     //根据db json数据格式来去数据0 1 2 3 4
     var DetailData = postData.postList[id];
     //是否收藏了
-    // var postMap={
+    // var post_collected={
     //   1:false,
     //   2:true
     // }
@@ -44,21 +44,64 @@ Page({
   collectedHand:function(event){
     var postMap=wx.getStorageSync('post_collected');
     //怎么从onload中拿到id ,可以data中设置
-        var postCollected = !postMap[this.data.postId];
-        //需要更新缓存
-        postMap[this.data.postId] = postCollected;
-        wx.setStorageSync(
-          'post_collected',postMap
-        );
-        //需要更新data
-        this.setData({
-          collected:postCollected
-        });
-        wx.showToast({
-          title: postCollected ? '收藏成功':"取消收藏成功",
-          duration:1000,
-          icon:"success"
+    //点击切换收藏和不收藏的图标
+     var postCollected = !postMap[this.data.postId];
+     postMap[this.data.postId] = postCollected;
+
+    //  //更新缓存值
+    //  wx.setStorageSync('post_collected', postMap);
+    //  //更新绑定的图图片切换值
+    //  this.setData({
+    //    collected: postCollected
+    //  })
+     this.showModel(postCollected, postMap);
+        
+  },
+  showToast: function (postCollected, postMap) {
+    //更新缓存值
+     wx.setStorageSync('post_collected', postMap);
+     //更新绑定的图图片切换值
+     this.setData({
+       collected: postCollected
+     });
+      wx.showToast({
+        title: postCollected ? '收藏成功' : "取消收藏成功",
+        duration: 1000,
+        icon: "success"
+      })
+  },
+  showModel: function (postCollected, postMap) {
+    var that=this;
+    wx.showModal({
+      title: '收藏',
+      content: postCollected ? '是否收藏该文章' :'取消收藏该文章',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#333',
+      confirmText: '确认',
+      confirmColor: '#405f80',
+      success:function(res){
+        if(res.confirm){
+          wx.setStorageSync('post_collected', postMap);
+          that.setData({
+            collected: postCollected
+          })
+        }
+      }
+    })
+  },
+  shareFuc:function(event){
+    var items = ['分享给微信好友', '分享到朋友圈', '分享到QQ空间', '分享到微博'];
+    wx.showActionSheet({
+      itemList:items,
+      itemColor:'#405f80',
+      success:function(res){
+        wx.showModal({
+          title: items[res.tapIndex],
+          content:'功能还没完善，现在还不能分享哦！'
         })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
