@@ -1,12 +1,13 @@
 // pages/posts/posts-detail/post-detail.js
-var postData=require("../../db/db.js")
+var postData=require("../../db/db.js");
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    isPlayMusic:false
   },
 
   /**
@@ -36,10 +37,39 @@ Page({
       postMap[id]=false;
       wx.setStorageSync('post_collected', postMap)
     }
+    //加载页面的时候就先设置好值。
     this.setData({
       DetailData: DetailData
-    })
+    });
 
+      //再次进入页面的时候，需要记录音乐图片的暂停和播放
+      if(app.globalData.g_isPlayingMusic){
+        this.setData({
+          isPlayMusic:true
+        })
+      }else{
+        this.setData({
+          isPlayMusic: false
+        })
+      }
+      this.musicFilp();
+
+  },
+  musicFilp:function(){
+    //让浮出的音乐控制面板和图片控制一致
+    var that = this;
+    wx.onBackgroundAudioPlay(function () {
+      that.setData({
+        isPlayMusic: true
+      });
+      app.globalData.g_isPlayingMusic = true;
+    });
+    wx.onBackgroundAudioPause(function () {
+      that.setData({
+        isPlayMusic: false
+      });
+      app.globalData.g_isPlayingMusic = false;
+    });
   },
   collectedHand:function(event){
     var postMap=wx.getStorageSync('post_collected');
@@ -54,7 +84,7 @@ Page({
     //  this.setData({
     //    collected: postCollected
     //  })
-     this.showModel(postCollected, postMap);
+     this.showToast(postCollected, postMap);
         
   },
   showToast: function (postCollected, postMap) {
@@ -102,6 +132,31 @@ Page({
         })
       }
     })
+  },
+  musicFuc:function(){
+    wx.showLoading({
+      title: '音乐加载中',
+    })
+    var musicId=this.data.postId;
+    var musicData = postData.postList[musicId].music;
+    var isPlayMusic = this.data.isPlayMusic;
+    this.setData({
+      musicData: musicData
+    });
+    if (!isPlayMusic){
+      wx.playBackgroundAudio({
+        dataUrl: musicData.url,
+        title: musicData.title,
+        coverImgUrl: musicData.coverImg
+      });
+    }else{
+      wx.stopBackgroundAudio();
+    }
+    this.setData({
+      isPlayMusic: !isPlayMusic
+    });
+    wx.hideLoading();
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
