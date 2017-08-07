@@ -1,18 +1,31 @@
 {
   "pages": [
-   
     "pages/posts/posts",
     "pages/posts/posts-detail/posts-detail",
-        "pages/index/index",
-   
-
-    "pages/logs/logs"
-
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/movie"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ccc",
     "navigationBarTitleText": "F鹅历险",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/posts/posts",
+        "text": "影评",
+        "iconPath":"/images/tab/yuedu.png",
+        "selectedIconPath":"/images/tab/yuedu_hl.png"
+      },
+      {
+        "pagePath": "pages/movie",
+        "text": "电影",
+        "iconPath": "/images/tab/dianying.png",
+        "selectedIconPath": "/images/tab/dianying_hl.png"
+      }
+    ]
+}
 }

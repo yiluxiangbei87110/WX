@@ -1,7 +1,7 @@
 
 <!--先静后动，先样式再数据-->
 <view class="wrap">
-  <image class="head-image" src="{{isPlayMusic ? musicData.coverImg : DetailData.headImgSrc}}"></image>
+  <image class="head-image" src="{{DetailData.headImgSrc}}"></image>
   <image catchtap="musicFuc" class="audio" src="{{isPlayMusic ? '/images/music/music-stop.png': '/images/music/music-start.png'}}"></image>
   <view class="author-date">
     <image class="avatar" src="{{DetailData.avatar}}"></image>

@@ -43,7 +43,7 @@ Page({
     });
 
       //再次进入页面的时候，需要记录音乐图片的暂停和播放
-      if(app.globalData.g_isPlayingMusic){
+    if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicPostId === id){
         this.setData({
           isPlayMusic:true
         })
@@ -63,12 +63,14 @@ Page({
         isPlayMusic: true
       });
       app.globalData.g_isPlayingMusic = true;
+      app.globalData.g_currentMusicPostId = that.data.postId;
     });
     wx.onBackgroundAudioPause(function () {
       that.setData({
         isPlayMusic: false
       });
       app.globalData.g_isPlayingMusic = false;
+      app.globalData.g_currentMusicPostId = null;
     });
   },
   collectedHand:function(event){
