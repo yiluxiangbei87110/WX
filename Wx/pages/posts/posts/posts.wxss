@@ -1,5 +1,5 @@
 /* posts.wxss */
-@import 'post-template/post-tmp.wxss';
+@import '../post-template/post-tmp.wxss';
 .postPage{
  overflow-x: hidden;
 }

@@ -24,8 +24,8 @@ Page({
     })
   },
   gotoWX:function(){
-    wx.navigateTo({
-      url: '../posts/posts'
+    wx.switchTab({
+      url: '/pages/posts/posts/posts'
     })
   }
 })

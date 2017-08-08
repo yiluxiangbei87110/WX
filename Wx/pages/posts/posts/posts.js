@@ -1,4 +1,4 @@
-var posData=require('../db/db.js');
+var posData=require('../../db/db.js');
 Page({
 
   /**
@@ -65,16 +65,16 @@ Page({
   gotoDetail:function(event){
    var id=event.currentTarget.dataset.postid;
    wx.navigateTo({
-     url: 'posts-detail/posts-detail?id='+id
+     url: '../posts-detail/posts-detail?id='+id
    })
   },
   swiperTap:function(event){
-    //卸载父元素上面，利用冒泡事件，来触发函数,注意此时不在currentTarget对象上面了，在target对象上面
+    //写在父元素上面，利用冒泡事件，来触发函数,注意此时不在currentTarget对象上面了，在target对象上面
     //注意断点的使用
     //如果在images 上面加一个bindTap="函数"，依然会跳转，他不会组织冒泡，但是如果使用了catchtap就会组织，不会跳转
     var id = event.target.dataset.postid;
     wx.navigateTo({
-      url: 'posts-detail/posts-detail?id=' + id
+      url: '../posts-detail/posts-detail?id=' + id
     })
   }
 })

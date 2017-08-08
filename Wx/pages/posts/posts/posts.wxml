@@ -1,4 +1,4 @@
-<import src="post-template/post-tmp.wxml"/>
+<import src="../post-template/post-tmp.wxml"/>
 <view class="postPage">
   <swiper catchtap="swiperTap"  indicator-dots="true" autoplay="true" duration="500" interval="1000" indicator-color="rgba(245,183,186,.8)" indicator-active-color="red">
     <swiper-item>
