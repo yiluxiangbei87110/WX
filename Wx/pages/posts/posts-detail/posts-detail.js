@@ -1,5 +1,5 @@
 // pages/posts/posts-detail/post-detail.js
-var postData=require("../../db/db.js");
+var postData=require("../../../db/db.js");
 var app = getApp();
 Page({
 
@@ -97,7 +97,7 @@ Page({
        collected: postCollected
      });
       wx.showToast({
-        title: postCollected ? '收藏成功' : "取消收藏成功",
+        title: postCollected ? "收藏成功" : "取消收藏成功",
         duration: 1000,
         icon: "success"
       })

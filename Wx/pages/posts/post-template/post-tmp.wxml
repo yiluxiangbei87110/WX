@@ -11,9 +11,9 @@
       {{item.content}}
     </text>
     <view class="wrap-like">
-      <image src="/images/1.jpg" class="wrap-like-image"></image>
+      <image src="/images/icon/2.jpg" class="wrap-like-image"></image>
       <text class="wrap-like-font">{{item.collection}}</text>
-      <image src="/images/2.jpg" class="wrap-like-image"></image>
+      <image src="/images/icon/1.jpg" class="wrap-like-image"></image>
       <text class="wrap-like-font">{{item.reading}}</text>
     </view>
   </view>

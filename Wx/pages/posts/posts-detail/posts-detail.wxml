@@ -9,8 +9,9 @@
     <text class="const-text">发表于</text>
     <text class="date">{{DetailData.dateTime}}</text>
   </view>
-  <text class="title">{{Detail.title}}</text>
-  <view class="tool">
+  <text class="title">{{DetailData.title}}</text>
+  <text class="detail">{{DetailData.detail}}</text>
+    <view class="tool">
     <view class="circle-img">
     <!--根据是否有缓存-->
      <image wx:if="{{collected}}" catchtap="collectedHand"  src="/images/icon/collection.png"></image>
@@ -19,5 +20,4 @@
     </view>
     <view class="horizon"></view>
   </view>
-  <text class="detail">{{DetailData.detail}}</text>
 </view>

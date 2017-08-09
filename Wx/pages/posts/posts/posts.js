@@ -1,4 +1,4 @@
-var posData=require('../../db/db.js');
+var posData=require('../../../db/db.js');
 Page({
 
   /**

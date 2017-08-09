@@ -23,6 +23,7 @@
     width:60rpx;
     height:60rpx;
     vertical-align: middle;
+    border-radius: 50%;
 }
 .wrap-text{
     margin-left: 20px;
@@ -30,10 +31,11 @@
 }
 
 .wrap-image{
-    width:100%;
+    width:98%;
     height:340rpx;
-    margin:auto 0;
-    margin-bottom: 15px;
+    margin:0 auto;
+    border-radius:5px;
+
 }
 
 

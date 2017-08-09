@@ -1,1 +1,4 @@
 <view class="classname">hello</view>
+<view class="classname" bindtap="getlocation">点击查看位置信息</view>
+<view class="classname" wx:for="{{info}}">{{info[item]}}</view>
+<view class="classname" wx:for="{{info}}">{{item}}</view>
