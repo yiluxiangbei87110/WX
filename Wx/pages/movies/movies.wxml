@@ -1,0 +1,3 @@
+<import src="movie-list-tpl/movie-list.wxml"/>
+<template is="movie-list"/>
+<view class="classname">{{hh}}</view>

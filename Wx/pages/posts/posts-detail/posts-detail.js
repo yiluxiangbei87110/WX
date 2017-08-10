@@ -129,7 +129,7 @@ Page({
       itemColor:'#405f80',
       success:function(res){
         wx.showModal({
-          title: items[res.tapIndex],
+          title: ''+items[res.tapIndex],
           content:'功能还没完善，现在还不能分享哦！'
         })
       }

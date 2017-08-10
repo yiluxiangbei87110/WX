@@ -1,17 +1,18 @@
 {
   "pages": [
-
+    "pages/movies/movies",
+    "pages/movies/movies",
     "pages/index/index",
     "pages/posts/posts-detail/posts-detail",
     "pages/logs/logs",
-    "pages/movie/movie",
+    
     "pages/posts/posts/posts"
       
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ccc",
-    "navigationBarTitleText": "F鹅历险",
+    "navigationBarTitleText": "Movies",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -23,7 +24,7 @@
         "selectedIconPath":"/images/tab/yuedu_hl.png"
       },
       {
-        "pagePath": "pages/movie/movie",
+        "pagePath": "pages/movies/movies",
         "text": "电影",
         "iconPath": "/images/tab/dianying.png",
         "selectedIconPath": "/images/tab/dianying_hl.png"

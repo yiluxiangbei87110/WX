@@ -1,0 +1,10 @@
+<import src="../star-tpl/star.wxml"/>
+<template name="movie-single">
+      <view class="movie-container">
+        <image class="movie-img" src="/images/logo/logo1.jpg"></image>
+        <text class="movie-title">战狼2</text>
+        <template is="star"  />
+    </view>
+</template>
+
+
