@@ -70,7 +70,14 @@ Page({
         isPlayMusic: false
       });
       app.globalData.g_isPlayingMusic = false;
-      app.globalData.g_currentMusicPostId = null;
+      //app.globalData.g_currentMusicPostId = null;
+    });
+    wx.onBackgroundAudioStop(function () {
+      that.setData({
+        isPlayMusic: false
+      })
+      app.globalData.g_isPlayingMusic = false;
+      // app.globalData.g_currentMusicPostId = null;
     });
   },
   collectedHand:function(event){

@@ -14,7 +14,7 @@ Page({
     top250: {},
     searchResult: {},
     containerShow: true,
-    searchPanelShow: false,
+    searchPanelShow: false
   },
 
   /**
@@ -133,5 +133,28 @@ Page({
     wx.navigateTo({
       url: "more-movie/more-movie?category="+category
     })
-  }
+  }, onBindFocus: function (event) {
+    this.setData({
+      containerShow: false,
+      searchPanelShow: true
+    })
+  }, onCancelImgTap: function (event) {
+    this.setData({
+      containerShow: true,
+      searchPanelShow: false,
+      searchResult: {}
+    }
+    )
+  },
+   onBindBlur: function (event) {
+    var text = event.detail.value;
+    var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
+    this.getMovieListData(searchUrl, "searchResult", "");
+  },
+   onMovieTap: function (event) {
+     var movieId = event.currentTarget.dataset.movieid;
+     wx.navigateTo({
+       url: "movie-detail/movie-detail?id=" + movieId
+     })
+   }
 })

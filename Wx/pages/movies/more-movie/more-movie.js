@@ -7,7 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      requestUrl: "",
+      totalCount:0,
+      totalMovies:{},
+      isEmpty:true
   },
 
   /**
@@ -28,6 +31,9 @@ Page({
         dataUrl = app.globalData.doubanBase + "/v2/movie/top250";
         break;
     }
+    this.setData({
+      requestUrl: dataUrl
+    });
     util.http(dataUrl,this.processDoubanData)
 
   },
@@ -46,9 +52,24 @@ Page({
       }
       movies.push(temp);
     }
+    //新旧数据相加
+    var totalMovies={};
+    if (this.data.isEmpty){
+      totalMovies=movies;
+    }else{
+       totalMovies=this.data.movies.concat(movies);
+     // totalMovies = movies.concat(this.data.movies);
+    }
+    console.log(totalMovies)
+
     this.setData({
-      movies: movies
-    });
+      movies: totalMovies,
+      isEmpty: false,
+    })
+    console.log(totalMovies)
+    this.data.totalCount += 20;
+    wx.hideNavigationBarLoading();
+    wx.stopPullDownRefresh();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -100,16 +121,27 @@ Page({
   onShareAppMessage: function () {
   
   }, 
-  onScrollLower:function(){
-    wx.showToast({
-      title: '12',
-      icon: '',
-      image: '',
-      duration: 0,
-      mask: true,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+  // scroll-view 新版本中不能使用onscrollLower加载，
+  //而且这里还有一个问题是多次返送了http请求
+  //https://zhuanlan.zhihu.com/p/24739728?refer=oldtimes
+  // onScrollLower:function(){
+  //   var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count=20";
+  //   util.http(nextUrl, this.processDoubanData);
+  //   wx.showNavigationBarLoading();
+  // }，
+  onReachBottom: function (event) {
+    var nextUrl = this.data.requestUrl +
+      "?start=" + this.data.totalCount + "&count=20";
+    util.http(nextUrl, this.processDoubanData)
+    wx.showNavigationBarLoading()
+  }
+  , onPullDownRefresh: function (event) {
+    var refreshUrl = this.data.requestUrl +
+      "?star=0&count=20";
+    this.data.movies = {};
+    this.data.isEmpty = true;
+    this.data.totalCount = 0;
+    util.http(refreshUrl, this.processDoubanData);
+    wx.showNavigationBarLoading();
   }
 })
