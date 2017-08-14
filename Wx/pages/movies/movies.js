@@ -21,6 +21,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    });
     var inTheatersUrl = app.globalData.doubanBase + "/v2/movie/in_theaters" + "?start=0&count=3";
     var comingSoonUrl = app.globalData.doubanBase + "/v2/movie/coming_soon" + "?start=0&count=3";
     var top250Url = app.globalData.doubanBase + "/v2/movie/top250" + "?start=0&count=3";
@@ -64,11 +67,12 @@ Page({
         movieId: subject.id
       }
       movies.push(temp);
+      wx.hideLoading();
     }
 
     var readData = {};
     //readData[settedKey] = movies;
-    //这样写只有一个top250的数据，很奇怪
+    //这样写只有一个top250的数据，很奇怪，其实不奇怪，只是把最后一个值readData{x}给了readData
     // this.setData({
     //   readData: readData
     // });

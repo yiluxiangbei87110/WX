@@ -17,6 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     var dataUrl='';
     var navigateTitle = options.category;
     this.setData({ navigateTitle: navigateTitle});
@@ -58,7 +59,6 @@ Page({
       totalMovies=movies;
     }else{
        totalMovies=this.data.movies.concat(movies);
-     // totalMovies = movies.concat(this.data.movies);
     }
     console.log(totalMovies)
 
@@ -108,12 +108,7 @@ Page({
   
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
+
 
   /**
    * 用户点击右上角分享
@@ -129,19 +124,26 @@ Page({
   //   util.http(nextUrl, this.processDoubanData);
   //   wx.showNavigationBarLoading();
   // }，
+  /**
+ * 页面上拉触底事件的处理函数
+ */
   onReachBottom: function (event) {
-    var nextUrl = this.data.requestUrl +
-      "?start=" + this.data.totalCount + "&count=20";
+    var nextUrl = this.data.requestUrl +"?start=" + this.data.totalCount + "&count=20";
     util.http(nextUrl, this.processDoubanData)
     wx.showNavigationBarLoading()
   }
   , onPullDownRefresh: function (event) {
-    var refreshUrl = this.data.requestUrl +
-      "?star=0&count=20";
+    var refreshUrl = this.data.requestUrl +"?star=0&count=20";
     this.data.movies = {};
     this.data.isEmpty = true;
     this.data.totalCount = 0;
     util.http(refreshUrl, this.processDoubanData);
     wx.showNavigationBarLoading();
-  }
+  },
+  onMovieTap: function (event) {
+    var movieId = event.currentTarget.dataset.movieid;
+    wx.navigateTo({
+      url: '../movie-detail/movie-detail?id=' + movieId
+    })
+  },
 })

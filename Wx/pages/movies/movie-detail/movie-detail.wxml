@@ -1,5 +1,5 @@
-<import src="../stars/stars-template.wxml" />
-<view class="container">
+<import src="../star-tpl/star.wxml" />
+<view class="container1">
   <image class="head-img" src="{{movie.movieImg}}" mode="aspectFill" />
   <view class="head-img-hover" data-src="{{movie.movieImg}}" catchtap="viewMoviePostImg">
     <text class="main-title">{{movie.title}}</text>
@@ -26,7 +26,7 @@
     </view>
     <view class="flex-row">
       <text class="mark">评分</text>
-      <template is="starsTemplate" data="{{stars:movie.stars, score:movie.score}}" />
+      <template is="star" data="{{stars:movie.stars, score:movie.score}}" />
     </view>
     <view class="flex-row">
       <text class="mark">导演</text>
