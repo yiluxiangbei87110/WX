@@ -2,7 +2,7 @@
 <view class="postPage">
   <swiper catchtap="swiperTap" indicator-dots="true" autoplay="true" duration="500" interval="1000" indicator-color="#405f80" indicator-active-color="red">
     <swiper-item>
-      <image src="/images/logo/logo5.png" data-postId="5"></image>
+      <image src="/images/logo/logo5.png" data-postId="4"></image>
     </swiper-item>
     <swiper-item>
       <image src="/images/logo/logo4.jpg" data-postId="3"></image>
