@@ -88,11 +88,11 @@ Page({
      postMap[this.data.postId] = postCollected;
 
     //  //更新缓存值
-    //  wx.setStorageSync('post_collected', postMap);
-    //  //更新绑定的图图片切换值
-    //  this.setData({
-    //    collected: postCollected
-    //  })
+     wx.setStorageSync('post_collected', postMap);
+     //更新绑定的图图片切换值
+     this.setData({
+       collected: postCollected
+     })
      this.showToast(postCollected, postMap);
         
   },

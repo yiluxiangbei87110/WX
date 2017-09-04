@@ -2,6 +2,9 @@
 <view class="postPage">
   <swiper catchtap="swiperTap" indicator-dots="true" autoplay="true" duration="500" interval="1000" indicator-color="#405f80" indicator-active-color="red">
     <swiper-item>
+      <image src="/images/logo/logo3.jpg" data-postId="2"></image>
+    </swiper-item>
+    <swiper-item>
       <image src="/images/logo/logo5.png" data-postId="4"></image>
     </swiper-item>
     <swiper-item>
@@ -10,22 +13,18 @@
     <swiper-item>
       <image src="/images/logo/logo2.jpg" data-postId="1"></image>
     </swiper-item>
-    <swiper-item>
-      <image src="/images/logo/logo3.jpg" data-postId="2"></image>
-    </swiper-item>
+
     <swiper-item>
       <image src="/images/logo/logo11.jpg" data-postId="0"></image>
     </swiper-item>
   </swiper>
 
   <block wx:for="{{imgDesc}}" wx:key="key">
-
-    <!-- 不能再template里面绑定，我们此时加一个view -->
-    <!-- id={{item。postId}}为什么不在view里加id反而在模板里面加呢，因为不想整个大的view触发跳转 -->
-    <view >
-      <template is="post-item" data="{{item}}"></template >
-</view>
-  
-</block>
+      <!-- 不能再template里面绑定，我们此时加一个view -->
+      <!-- id={{item。postId}}为什么不在view里加id反而在模板里面加呢，因为不想整个大的view触发跳转 -->
+      <view>
+        <template is="post-item" data="{{item}}"></template >
+      </view>
+  </block>
 
 </view>

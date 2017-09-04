@@ -6,7 +6,8 @@
     "pages/movies/movies",
     "pages/movies/more-movie/more-movie",
     "pages/posts/posts-detail/posts-detail",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/test/test"
 
       
   ],

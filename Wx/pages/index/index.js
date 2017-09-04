@@ -3,7 +3,7 @@
 var app = getApp()
 Page({
   data: {
-    motto: '影与影评',
+    motto: '更多内容',
     userInfo: {}
   },
   //事件处理函数
@@ -21,7 +21,7 @@ Page({
       that.setData({
         userInfo:userInfo
       })
-    })
+    });
   },
   gotoWX:function(){
     wx.switchTab({
