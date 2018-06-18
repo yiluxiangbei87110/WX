@@ -1,0 +1,8 @@
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
+<view catchtap="OnTest">
+  <view style="height:40px;background:pink;" data-id="1">11111111</view>
+  <view style="height:40px;background:yellow;" data-id="2">222222</view>
+  <view style="height:40px;background:pink;" data-id="3">333333</view>
+  <view style="height:40px;background:yellow;" data-id="4">444444</view>
+</view>

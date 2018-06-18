@@ -7,7 +7,7 @@
   bindblur="onBindBlur"/>
   <image  wx:if="{{searchPanelShow}}" src="/images/icon/xx.png" class="xx-img" bindtap="onCancelImgTap"></image>
 </view>
-<view  wx:if="{{containerShow}}">
+ <view  wx:if="{{containerShow}}">
    <view class="movie-template">
     <template is="movie-list" data="{{...inTheaters}}"></template> 
    </view> 
@@ -19,7 +19,7 @@
     <view class="movie-template">
     <template is="movie-list" data="{{...top250}}"></template> 
    </view>  
-</view>
+</view> 
 
 <view class="search-panel"  wx:if="{{searchPanelShow}}">
     <template is="more-movie" data="{{...searchResult}}"/>

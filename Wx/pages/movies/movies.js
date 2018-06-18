@@ -71,21 +71,23 @@ Page({
     }
 
     var readData = {};
-    //readData[settedKey] = movies;
-    //这样写只有一个top250的数据，很奇怪，其实不奇怪，只是把最后一个值readData{x}给了readData
+    // readData[settedKey] = movies;
+    // //这样写只有一个top250的数据，很奇怪，其实不奇怪，只是把最后一个值readData{x}给了readData
+    // //加花括号和不加花括号是不同的，不加的直接将 inTheaters comingSoon等给赋值
     // this.setData({
     //   readData: readData
     // });
 
     //这样写就ok，但是因为模板的问题，list 模板只能渲染一个数据 inTheaters 或comsoon 或者top250。现在我们将三者的信息全部放到movies中，然后耳机模板就可以只写一个了
-
-    readData[settedKey] = movies;
-    this.setData(readData);
     readData[settedKey] = {
       movies: movies,
       categoryTitle: desc
     }
     this.setData(readData);
+    // inTheaters		{2 }
+    // comingSoon		{2 }
+    // top250		{2 }
+
   },
   onReady: function () {
 
