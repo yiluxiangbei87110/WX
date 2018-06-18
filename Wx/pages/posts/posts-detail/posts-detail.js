@@ -65,20 +65,13 @@ Page({
       app.globalData.g_isPlayingMusic = true;
       app.globalData.g_currentMusicPostId = that.data.postId;
     });
-    wx.onBackgroundAudioPause(function () {
-      that.setData({
-        isPlayMusic: false
-      });
-      app.globalData.g_isPlayingMusic = false;
-      //app.globalData.g_currentMusicPostId = null;
-    });
-    wx.onBackgroundAudioStop(function () {
-      that.setData({
-        isPlayMusic: false
-      })
-      app.globalData.g_isPlayingMusic = false;
-      // app.globalData.g_currentMusicPostId = null;
-    });
+    // wx.onBackgroundAudioPause(function () {
+    //   that.setData({
+    //     isPlayMusic: false
+    //   });
+    //   app.globalData.g_isPlayingMusic = false;
+    //   app.globalData.g_currentMusicPostId = null;
+    // });
   },
   collectedHand:function(event){
     var postMap=wx.getStorageSync('post_collected');
